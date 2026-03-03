@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Network Operations Center</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div><h1>NETWORK OPERATIONS CENTER <span>LIVE</span></h1></div>
+      <div class="status">● SNMP MONITORING ACTIVE</div>
+    </header>
+
+    <section class="tiles" id="tiles"></section>
+
+    <section id="view-main" class="view active">
+      <div class="content-grid">
+        <div class="panel topology">
+          <div class="panel-head"><h2>NETWORK TOPOLOGY</h2><div id="class-toggles"></div></div>
+          <div id="map"></div>
+          <div class="legend">Link color: green &lt;50%, yellow 50-69%, orange 70-79%, red 80%+</div>
+          <div class="history-panel">
+            <h3>Selected Link History</h3>
+            <div class="window-buttons">
+              <button data-window="1h">1H</button><button data-window="6h">6H</button><button data-window="1d">1D</button><button data-window="1w">1W</button><button data-window="1m">1M</button><button data-window="1y">1Y</button>
+            </div>
+            <div id="history-output">Click a link on map.</div>
+          </div>
+        </div>
+        <div class="panel side">
+          <h2>TOP INTERFACE ERRORS</h2>
+          <div id="top-errors"></div>
+          <h2>DETAILS</h2>
+          <div id="selection-details">Click a node or link.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-nodes" class="view">
+      <div class="panel">
+        <h2>ACTIVE NODES</h2>
+        <div class="filters"><input id="node-search" placeholder="Search hostname"/><input id="node-type" placeholder="Filter node type"/><select id="node-class"><option value="">All classes</option></select><button id="node-filter-apply">Apply</button></div>
+        <table><thead><tr><th>Hostname</th><th>IP</th><th>Class</th><th>Type</th><th>Env</th></tr></thead><tbody id="node-table"></tbody></table>
+      </div>
+      <div class="panel">
+        <h3>Node Interfaces</h3>
+        <div class="filters"><input id="if-search" placeholder="Search interface/description"/><label><input type="checkbox" id="show-admin-down" checked/> Show Admin Down</label></div>
+        <table><thead><tr><th>Interface</th><th>Description</th><th>LAG</th><th>Speed</th><th>Admin/Oper</th><th>TX</th><th>RX</th><th>Errors</th></tr></thead><tbody id="if-table"></tbody></table>
+      </div>
+    </section>
+
+    <section id="view-alerts" class="view">
+      <div class="panel">
+        <h2>SNMP TRAP ALERTS</h2>
+        <div class="filters"><select id="alert-severity"><option value="">All severities</option><option>critical</option><option>warning</option></select><select id="alert-status"><option value="">All status</option><option>open</option><option>acknowledged</option><option>cleared</option></select><label><input type="checkbox" id="include-lab"/> Include Lab</label><button id="alert-filter-apply">Apply</button></div>
+        <table><thead><tr><th>ID</th><th>Severity</th><th>Node</th><th>Port</th><th>Description</th><th>Last Triggered</th><th>Status</th><th>Actions</th></tr></thead><tbody id="alerts-table"></tbody></table>
+      </div>
+      <div class="panel"><h3>Raw Alert Details</h3><pre id="alert-details">Select an alert row.</pre></div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="/assets/app.js"></script>
+  </body>
+</html>
