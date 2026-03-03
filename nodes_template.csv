@@ -1,0 +1,6 @@
+node_id,hostname,ip_address,latitude,longitude,environment,node_class,node_type
+1,den-cr1,10.10.1.10,39.7392,-104.9903,production,core,router
+2,phx-cr1,10.10.2.20,33.4484,-112.0740,production,core,router
+3,dal-agg1,10.10.3.30,32.7767,-96.7970,production,aggregation,switch
+4,sea-edge1,10.10.4.40,47.6062,-122.3321,production,edge,router
+5,lab-core1,10.99.1.5,40.0150,-105.2705,lab,core,router

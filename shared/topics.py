@@ -1,0 +1,11 @@
+"""Kafka topic constants for the NMP platform."""
+
+RAW_SYSLOG = "raw.syslog"
+RAW_SNMP = "raw.snmp"
+RAW_SNMP_POLL = "raw.snmp.poll"
+RAW_NETFLOW = "raw.netflow"
+RAW_TELEMETRY = "raw.telemetry"
+EVENTS_DISCOVERY = "events.discovery"
+PARSED_EVENTS = "parsed.events"
+PARSED_METRICS = "parsed.metrics"
+ALERTS = "alerts"

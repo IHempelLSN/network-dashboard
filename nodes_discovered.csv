@@ -1,0 +1,3 @@
+node_id,mgmt_ip,hostname,vendor,site,status
+1001,10.60.10.11,cpe-austin-01,Adtran,Austin,pending_review
+1002,10.60.11.12,cpe-phx-04,Calix,Phoenix,pending_review
